@@ -1,0 +1,145 @@
+8) Minimálna kostra grafu / Minimum spanning tree
+Vašou úlohou je zostaviť neorientovaný graf bez slučiek na základe zoznamu hrán uvedeného na vstupe a následne vykonávať nad týmto grafom nasledovné operácie podľa vstupu:
+i - insert - vloženie novej hrany do grafu
+s - search - vyhľadanie minimálnej kostry v grafe, ktorá obsahuje zadaný vrchol. Táto kostra je vypísaná tak, že hrany sú zoradené od najmenších čísel po najväčšie.
+u - update - úprava existujúcej hrany v grafe (t.j. modifikácia váhy danej hrany), pričom váha hrany sa nesmie zmeniť na záporné číslo
+d - delete - odstránenie existujúcej hrany z grafu
+
+Hrana je určená ako dvojica dvoch vrcholov, pričom vrcholy sú očíslované celými nezápornými číslami od 0 do N, kde N je maximálny počet vrcholov v danom grafe.
+
+V prípade, že daná operácia zlyhá, vypíše sa chybová hláška " failed" v samostatnom riadku.
+Zlyhanie je napríklad, keď sa snažíme pridať hranu, ktorá už existuje, alebo keď operácia search nenašla žiadnu kostru pre zadaný vrchol (t.j. ani jednu hranu).
+
+Vstupom programu je na prvom riadku číslo N (max. počet vrcholov v grafe).
+Nasleduje ľubovoľný počet riadkov, kde je v každom riadku jedna hrana začiatočného grafu, a to vo formáte "(vrchol_1, vrchol2, váha)".
+Po tomto začiatočnom grafe nasleduje ľubovoľný počet riadkov, pričom každý riadok predstavuje jeden príkaz pre jednu operáciu (t.j. insert, search, update alebo delete).
+Operácia je vyjadrená začiatočným písmenom, t.j. i, s, u alebo d. Nasledujú dáta potrebné pre danú operáciu.
+Operácia insert potrebuje tieto 3 údaje: číslo vrcholu_1, číslo vrcholu_2, váha hrany (tiež celé číslo)
+Operácia search potrebuje tento 1 údaj: čislo vrcholu, ktorý má obsahovať minimálna kostra grafu
+Operácia update potrebuje tieto 3 údaje: číslo vrcholu_1, číslo vrcholu_2, zmena váhy hrany (tiež celé číslo)
+Operácia delete potrebuje tieto 2 údaje: číslo vrcholu_1, číslo vrcholu_2
+
+Výstupom sú minimálne kostry nájdené operáciami search, pričom formát výstupu je nasledovný:
+: [(vrchol1, vrchol2), (vrchol2, vrchol3), ..., (vrchol_X, posledny_vrchol)]
+Hrany sú zoradené od najmenšieho čísla po najväčšie. Okrem toho sú na výstupe aj vyššie spomenuté chybové hlášky v prípade zlyhania operácie, spolu hranou/vrcholom, nad ktorou/rým daná operácia zlyhala.
+
+--------------------------------------------
+
+Your task is to construct an undirected graph without loops based on the list of edges given in the input and then perform the following operations on this graph according to the input:
+i - insert - inserting a new edge into the graph
+s - search - search for the minimal skeleton in the graph that contains the specified vertex
+u - update - modification of an existing edge in the graph (i.e. modification of the weight of the given edge), while the weight of the edge must not be changed to a negative number
+d - delete - remove an existing edge from the graph
+
+An edge is defined as a pair of two vertices, while the vertices are numbered with non-negative whole numbers from 0 to N, where N is the maximum number of vertices in the given graph.
+
+If the given operation fails, the error message " failed" is printed in a separate line.
+The failure is, for example, when we try to add an edge that already exists, or when the search operation did not find any skeleton for the specified vertex (i.e. not a single edge).
+
+The input of the program is the number N (max. number of vertices in the graph).
+Then there are lines, where in each line there is one edge of the initial graph, in the format "(vertex_1, vertex2, weight)".
+This initial graph is followed by any number of lines, each line representing one command for one operation (ie, insert, search, update, or delete).
+The operation is expressed by the initial letter, i.e. i, s, u or d. The following are the data required for the given operation.
+The insert operation needs the following 3 data: vertex_1 number, vertex_2 number, edge weight (also an integer)
+The search operation needs this 1 piece of data: the number of the vertex that the minimal skeleton of the graph should contain
+The update operation needs the following 3 data: number of vertex_1, number of vertex_2, change of edge weight (also an integer)
+The delete operation needs the following 2 data: vertex_1 number, vertex_2 number
+
+The output is the minimal skeletons found by search operations, while the output format is as follows:
+: [(vertex1, vertex2), (vertex2, vertex3), ..., (vertex_X, last_vertex)]
+Edges are sorted In addition, the above-mentioned error messages are also output in case of operation failure, together with the edge/vertex above which/the given operation failed.
+
+Do 09.05.2024, 17:00
+
+Ukážkový vstup
+6
+(3, 0, 163678189)
+(3, 2, 116110502)
+(3, 1, 636291174)
+(3, 4, 604309580)
+(3, 5, 742450723)
+(0, 4, 982660960)
+(0, 1, 214645293)
+(0, 5, 848684709)
+(0, 2, 276073530)
+(2, 4, 233742802)
+(4, 5, 578621347)
+(1, 5, 888487121)
+s 0
+i 5 2 1033963
+d 3 0
+i 4 1 130237511
+u 0 4 -50786606
+u 3 5 -64503537
+d 4 5
+d 2 5
+d 3 1
+u 3 2 81792993
+i 2 1 56503429
+d 3 5
+d 2 1
+s 3
+d 1 5
+i 1 3 17267236
+s 3
+d 2 4
+s 2
+u 3 4 71148930
+i 2 4 125219305
+s 3
+i 5 3 146438595
+d 0 2
+u 2 4 71674226
+i 5 2 77894607
+s 3
+u 3 2 55074367
+u 3 5 -77515144
+i 2 0 40796343
+d 3 5
+s 2
+d 0 5
+s 3
+d 3 2
+d 3 1
+u 0 4 24714783
+d 2 4
+u 2 5 56498429
+s 4
+d 4 1
+d 0 1
+s 4
+u 2 5 32874073
+s 5
+d 0 2
+i 0 3 158996028
+s 1
+u 3 0 -14905679
+s 5
+d 0 4
+s 5
+u 3 0 -60486727
+s 2
+d 3 0
+i 0 5 92405740
+d 3 4
+u 2 5 -47624317
+i 3 5 24173816
+s 0
+
+Ukážkový výstup
+1306798133: [(0, 1), (0, 3), (2, 3), (2, 4), (4, 5)]
+1625213810: [(0, 1), (0, 5), (1, 4), (2, 3), (2, 4)]
+1408738244: [(0, 1), (0, 5), (1, 3), (1, 4), (2, 3)]
+1408738244: [(0, 1), (0, 5), (1, 3), (1, 4), (2, 3)]
+1336054054: [(0, 1), (0, 5), (1, 3), (1, 4), (2, 4)]
+586483242: [(0, 1), (1, 3), (1, 4), (2, 5), (3, 5)]
+463089228: [(0, 2), (1, 3), (1, 4), (2, 4), (2, 5)]
+463089228: [(0, 2), (1, 3), (1, 4), (2, 4), (2, 5)]
+1195530693: [(0, 1), (0, 2), (1, 4), (2, 5), (3, 4)]
+1807237026: [(0, 2), (0, 4), (2, 5), (3, 4)]
+1840111099: [(0, 2), (0, 4), (2, 5), (3, 4)]
+search 1 failed
+167267109: [(2, 5)]
+167267109: [(2, 5)]
+167267109: [(2, 5)]
+236222348: [(0, 5), (2, 5), (3, 5)]
